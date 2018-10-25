@@ -44,7 +44,7 @@ int main( int argc, char** argv)
     // clear host memory
     for (n=0; n<dimA; n++)
     {
-        h_a[n] = 0.f;
+	    h_a[n] = 0.f;
     }
 
     // Part 4 of 5: device to host copy
@@ -56,7 +56,7 @@ int main( int argc, char** argv)
     // verify the data on the host is correct
     for (n=0; n<dimA; n++)
     {
-        assert(h_a[n] == (float) n);
+	    assert(h_a[n] == (float) n);
     }
 
     // Part 5 of 5: free device memory pointers d_a and d_b
@@ -78,10 +78,10 @@ int main( int argc, char** argv)
 
 void checkCUDAError(const char *msg)
 {
-    cudaError_t err = cudaGetLastError();
-    if( cudaSuccess != err) 
-    {
-        fprintf(stderr, "Cuda error: %s: %s.\n", msg, cudaGetErrorString( err) );
-        exit(-1);
-    }                         
+	cudaError_t err = cudaGetLastError();
+	if( cudaSuccess != err) 
+	{
+		fprintf(stderr, "Cuda error: %s: %s.\n", msg, cudaGetErrorString( err) );
+		exit(-1);
+	}                         
 }
